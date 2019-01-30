@@ -19,6 +19,7 @@ execute as @a[tag=hearth_needs_tp,scores={hearth_cooldown=1..}] run scoreboard p
 execute as @a[tag=hearth_needs_tp,scores={hearth_cooldown=1..}] run tellraw @s [{"text": "You must wait ", "color":"aqua"}, {"score":{"name":"@s", "objective":"hearth_coold_hr"}, "color":"red"}, {"text":" seconds", "color":"red"}, " before you can hearth again."]
 # Give them back a potion and remove the tag
 execute as @a[tag=hearth_needs_tp,scores={hearth_cooldown=1..}] run function hearth:stone
+clear @a[tag=hearth_needs_tp,scores={hearth_cooldown=1..}] minecraft:glass_bottle 1
 execute as @a[tag=hearth_needs_tp,scores={hearth_cooldown=1..}] run tag @s remove hearth_needs_tp
 # Decrement the cooldown for everyone
 scoreboard players remove @a[scores={hearth_cooldown=1..}] hearth_cooldown 1
